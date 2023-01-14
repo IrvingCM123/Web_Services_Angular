@@ -1,0 +1,35 @@
+
+.sombra {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(79, 75, 79, 1);
+  -moz-box-shadow: 0px 5px 15px 0px rgba(79, 75, 79, 1);
+  box-shadow: 0px 5px 15px 0px rgba(79, 75, 79, 1);
+  background-color: var(--blanco);
+  padding: 2rem;
+  border-radius: 2rem;
+}
+
+.imagen {
+  display: grid;
+  grid-template-columns: 2fr 5fr 2fr;
+  justify-items: center;
+  align-items: center;
+
+  background-image: url('../../../../assets/Menú/Logo.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 25rem;
+  max-height: fit-content;
+  padding-top: 2rem;
+
+  position: relative;
+}
+
+
+.Entrada {
+  margin: 3rem 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
