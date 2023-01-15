@@ -14,24 +14,21 @@ export class AutosApiServices extends AutosGateway {
 
   constructor(private http: HttpClient) { super(); }
 
-  getByID(id: String): Observable<Autos> {
-
-      let header = new HttpHeaders()
+  getAutosByID(id: String): Observable<Autos> {
+    let header = new HttpHeaders()
       .set('Type-content', 'aplication/json');
 
-      return this.http.get<Autos>( (this._url+id), { headers: header } );
+    return this.http.get<Autos>((this._url + 'autos/ ' + id), { headers: header });
   }
 
-  getAll(): Observable<Autos[]> {
-      //return this.http.get<Array<Autos>>(this._url);
-      let header = new HttpHeaders()
+  getAutosAll(): Observable<Autos[]> {
+    let header = new HttpHeaders()
       .set('Type-content', 'aplication/json');
 
-      return this.http.get<Array<Autos>>(this._url, { headers: header} );
-
+    return this.http.get<Array<Autos>>(this._url + 'autos/ ', { headers: header });
   }
 
-  saveNew(_aut: Autos): Observable<void> {
-      throw new Error('Método no implementado.');
+  SaveAutosNew(_aut: Autos): Observable<void> {
+    throw new Error('Método no implementado.');
   }
 }

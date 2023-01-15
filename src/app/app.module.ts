@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AutosGateway } from './domain/models/Autos/Gateway/Autos-Gateway';
 import { MenuComponent } from './modules/UI/menu/menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { MenuComponent } from './modules/UI/menu/menu.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [{provide: AutosGateway, useClass: AutosApiServicesDocker}],
   bootstrap: [AppComponent]
