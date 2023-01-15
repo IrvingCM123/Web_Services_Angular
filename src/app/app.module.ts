@@ -1,14 +1,21 @@
-import { AutosApiServices } from './infraestructura/Autos/Autos-Api-Withou-Delay.service';
-import { AutosApiServicesDocker } from './infraestructura/Autos/Autos-Api-With-Docker.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { AutosGateway } from './domain/models/Autos/Gateway/Autos-Gateway';
 import { MenuComponent } from './modules/UI/menu/menu.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AutosApiServices } from './infraestructura/Autos/Autos-Api-Withou-Delay.service';
+import { AutosApiServicesDocker,ClientesApiServicesDocker,DistribuidoresApiServicesDocker,InventarioApiServicesDocker } from './infraestructura/Autos/Autos-Api-With-Docker.service';
+
+import { InventarioGateway } from 'src/app/domain/models/Autos/Gateway/Inventario-Gateway';
+import { ClientesGateway } from 'src/app/domain/models/Autos/Gateway/Clientes-Gateway';
+import { DistribuidoresGateway } from 'src/app/domain/models/Autos/Gateway/Distribuidor-Gateway';
+import { AutosGateway } from './domain/models/Autos/Gateway/Autos-Gateway';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +28,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     BrowserAnimationsModule,
   ],
-  providers: [{provide: AutosGateway, useClass: AutosApiServicesDocker}],
+  providers: [
+    {provide: ClientesGateway , useClass: ClientesApiServicesDocker},
+    {provide: DistribuidoresGateway, useClass: DistribuidoresApiServicesDocker},
+    {provide: AutosGateway, useClass: AutosApiServicesDocker},
+    {provide: InventarioGateway, useClass: InventarioApiServicesDocker}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

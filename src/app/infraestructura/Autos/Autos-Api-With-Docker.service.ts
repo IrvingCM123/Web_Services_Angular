@@ -18,39 +18,42 @@ import { InventarioGateway } from 'src/app/domain/models/Autos/Gateway/Inventari
 
 export class AutosApiServicesDocker extends AutosGateway {
 
-  private _url = 'http://localhost:3000/';
+  private _url = 'http://localhost:3000/autos/';
 
   constructor(private http: HttpClient) { super(); }
 
   getAutosByID(id: String): Observable<Autos> {
     let header = new HttpHeaders().set('Type-content', 'aplication/json');
-    return this.http.get<Autos>((this._url + 'autos/ ' + id), { headers: header });
+    return this.http.get<Autos>((this._url + id), { headers: header });
   }
 
   getAutosAll(): Observable<Autos[]> {
     let header = new HttpHeaders().set('Type-content', 'aplication/json');
-    return this.http.get<Array<Autos>>(this._url + 'autos/ ', { headers: header });
+    return this.http.get<Array<Autos>>(this._url, { headers: header });
   }
 
   SaveAutosNew(_aut: Autos): Observable<void> {
     throw new Error('Método no implementado.');
   }
-
 }
 
+
+@Injectable({
+  providedIn: 'root'
+})
 export class ClientesApiServicesDocker extends ClientesGateway {
 
-  private _url = 'http://localhost:3000/';
+  private _url = 'http://localhost:3000/cliente/';
 
   constructor(private http: HttpClient) { super(); }
 
   getClientesByID(id: String): Observable<Clientes> {
     let header = new HttpHeaders().set('Type-content', 'aplication/json');
-    return this.http.get<Clientes>((this._url + 'cliente/' + id),  { headers: header });
+    return this.http.get<Clientes>((this._url + id), { headers: header });
   }
   getClientesAll(): Observable<Clientes[]> {
     let header = new HttpHeaders().set('Type-content', 'aplication/json');
-    return this.http.get<Array<Clientes>>(this._url + 'cliente/ ', { headers: header });
+    return this.http.get<Array<Clientes>>(this._url, { headers: header });
   }
 
   saveClientesNew(_cliente: Clientes): Observable<void> {
@@ -59,19 +62,53 @@ export class ClientesApiServicesDocker extends ClientesGateway {
 
 }
 
+
+@Injectable({
+  providedIn: 'root'
+})
 export class DistribuidoresApiServicesDocker extends DistribuidoresGateway {
 
-  private _url = 'http://localhost:3000/';
+  private _url = 'http://localhost:3000/distribuidor/';
 
   constructor(private http: HttpClient) { super(); }
 
   getDistribuidorByID(id: String): Observable<Distribuidores> {
-    throw new Error('Method not implemented.');
+    let header = new HttpHeaders().set('Type-content', 'aplication/json');
+    return this.http.get<Distribuidores>((this._url + id), { headers: header });
   }
+
   getDistribuidorAll(): Observable<Distribuidores[]> {
+    let header = new HttpHeaders().set('Type-content', 'aplication/json');
+    return this.http.get<Array<Distribuidores>>(this._url, { headers: header });
+  }
+
+  saveDistribuidorNew(_distribuidor: Distribuidores): Observable<void> {
     throw new Error('Method not implemented.');
   }
-  saveDistribuidorNew(_distribuidor: Distribuidores): Observable<void> {
+
+}
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class InventarioApiServicesDocker extends InventarioGateway {
+
+  private _url = 'http://localhost:3000/control-al';
+
+  constructor(private http: HttpClient) { super(); }
+
+  getInventarioByID(id: String): Observable<Inventario> {
+    let header = new HttpHeaders().set('Type-content', 'aplication/json');
+    return this.http.get<Inventario>((this._url + id), { headers: header });
+  }
+
+  getInventarioAll(): Observable<Inventario[]> {
+    let header = new HttpHeaders().set('Type-content', 'aplication/json');
+    return this.http.get<Array<Inventario>>(this._url);
+  }
+
+  saveInventarioNew(_inventario: Inventario): Observable<void> {
     throw new Error('Method not implemented.');
   }
 

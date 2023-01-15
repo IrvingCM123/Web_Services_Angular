@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { Autos } from '../../models/Autos/autos';
 import { AutosGateway } from '../../models/Autos/Gateway/Autos-Gateway';
 
@@ -8,14 +9,15 @@ import { AutosGateway } from '../../models/Autos/Gateway/Autos-Gateway';
 })
 
 export class GetAutosCasosUso {
+  
   constructor (private _autosGateWay: AutosGateway) {}
 
   getAutosByID (id: String) : Observable <Autos> {
-    return this._autosGateWay.getByID(id);
+    return this._autosGateWay.getAutosByID(id);
   }
 
   getAllAutos () : Observable <Array<Autos>> {
-    return this._autosGateWay.getAll();
+    return this._autosGateWay.getAutosAll();
   }
 
 }

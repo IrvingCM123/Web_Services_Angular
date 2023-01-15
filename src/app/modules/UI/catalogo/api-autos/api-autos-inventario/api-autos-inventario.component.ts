@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetInventarioCasosUso } from 'src/app/domain/Casos_Uso/Autos/getAlquiler';
 
 @Component({
   selector: 'app-api-autos-inventario',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApiAutosInventarioComponent implements OnInit {
 
-  constructor() { }
+  public Inventario : Array <any> = [];
+
+  constructor( private _getInventarioCasosUso : GetInventarioCasosUso) { }
+  response$ ;
+  datos;
 
   ngOnInit(): void {
+
+    this.response$ = this._getInventarioCasosUso.getInventarioAll();
+    this.response$.subscribe( (Resp: any) => { this.Inventario = Resp } )
+
   }
 
 }

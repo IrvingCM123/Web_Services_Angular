@@ -1,5 +1,5 @@
 import { AutosApiServices } from './infraestructura/Autos/Autos-Api-Withou-Delay.service';
-import { AutosApiServicesDocker } from './infraestructura/Autos/Autos-Api-With-Docker.service';
+import { AutosApiServicesDocker, InventarioApiServicesDocker } from './infraestructura/Autos/Autos-Api-With-Docker.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,7 +11,7 @@ export class AppComponent implements OnInit{
   response$ ;
   datos;
   title = 'Web-Services';
-  constructor (private _autosApiService : AutosApiServices) {}
+  constructor (private _autosApiService : AutosApiServicesDocker, private _inventarioApiService : InventarioApiServicesDocker) {}
   ngOnInit(): void {
 
   }

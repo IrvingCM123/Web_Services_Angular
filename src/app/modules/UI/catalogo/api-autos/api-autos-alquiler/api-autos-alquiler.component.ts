@@ -1,5 +1,5 @@
-import { GetAutosCasosUso } from 'src/app/domain/Casos_Uso/Autos/getAutos';
 import { Component, OnInit } from '@angular/core';
+import { GetInventarioCasosUso } from 'src/app/domain/Casos_Uso/Autos/getAlquiler';
 
 @Component({
   selector: 'app-api-autos-alquiler',
@@ -10,7 +10,7 @@ export class ApiAutosAlquilerComponent implements OnInit {
 
   public Alquileres: Array<any> = [];
 
-  constructor( private _getAutosCasosUso : GetAutosCasosUso) { }
+  constructor( private _getAlquilerCasosUso : GetInventarioCasosUso) { }
   response$ ;
   datos;
 
@@ -22,7 +22,7 @@ export class ApiAutosAlquilerComponent implements OnInit {
       //}
     //);
 
-    this.response$ = this._getAutosCasosUso.getAllAutos();
+    this.response$ = this._getAlquilerCasosUso.getInventarioAll();
     this.response$.subscribe( (Resp: any) => { this.Alquileres = Resp } )
 
     //this.response$ = this._getAutosCasosUso.getAutosByID('63b4cd06380a2d123rb064b96');

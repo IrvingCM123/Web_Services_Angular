@@ -1,3 +1,30 @@
 <app-api-autos-navegacion></app-api-autos-navegacion>
 
-<p>api-autos-inventario works!</p>
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col" *ngFor="let alquiler of Inventario">
+
+    <div class="card" style="width: 18rem;" >
+      <div>  </div>
+      <div class="card-body">
+        <h5 class="card-title" *ngIf="!datos?.title">Card title</h5>
+        <p class="card-text"> <img src="{{alquiler.img }}" alt="" style="width: 15rem; height: 10rem;">  </p>
+      </div>
+      <ul class="list-group list-group-flush" *ngIf="!datos?.title">
+        <li class="list-group-item"> <p  *ngIf="!datos?.title"> ID_Folio {{alquiler.control_id_folio}} </p></li>
+        <li class="list-group-item"> <p  *ngIf="!datos?.title"> Placas {{alquiler.control_placas_del_auto }} </p> </li>
+        <li class="list-group-item"> <p  *ngIf="!datos?.title"> Fecha Salida {{alquiler.control_fecha_de_salida_del_auto }} </p> </li>
+        <li class="list-group-item"> <p  *ngIf="!datos?.title"> Fecha Entrada {{alquiler.control_fecha_de_entrada_del_auto}} </p></li>
+        <li class="list-group-item"> <p  *ngIf="!datos?.title"> Cliente Nombre {{alquiler.control_cliente_nombre }} </p> </li>
+        <li class="list-group-item"> <p  *ngIf="!datos?.title"> Cliente Telefono {{alquiler.control_cliente_telefono }} </p> </li>
+        <li class="list-group-item"> <p  *ngIf="!datos?.title"> Cliente Email {{alquiler.control_cliente_email}} </p></li>
+        <li class="list-group-item"> <p  *ngIf="!datos?.title"> ID {{alquiler._id }} </p> </li>
+        <li class="list-group-item"> <p  *ngIf="!datos?.title"> V {{alquiler.__v }} </p> </li>
+      </ul>
+    </div>
+    </div>
+</div>
+
+<div>
+  wddadd
+</div>

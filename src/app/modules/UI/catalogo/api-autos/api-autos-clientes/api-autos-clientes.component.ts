@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetAutosCasosUso } from 'src/app/domain/Casos_Uso/Autos/getAutos';
-
+import { GetClientesCasosUso } from 'src/app/domain/Casos_Uso/Autos/getCliente';
 @Component({
   selector: 'app-api-autos-clientes',
   templateUrl: './api-autos-clientes.component.html',
@@ -10,9 +9,14 @@ export class ApiAutosClientesComponent implements OnInit {
 
   public Clientes: Array<any> = [];
 
-  constructor( private _getClientesCasosUso : GetAutosCasosUso) { }
+  constructor( private _getClientesCasosUso : GetClientesCasosUso) { }
+  response$ ;
+  datos;
 
   ngOnInit(): void {
+    this.response$ = this._getClientesCasosUso.getClientesAll();
+    this.response$.subscribe( (Resp: any) => { this.Clientes = Resp } )
+
   }
 
 }
