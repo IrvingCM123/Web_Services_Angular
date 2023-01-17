@@ -9,24 +9,24 @@ import { GetInventarioCasosUso } from 'src/app/domain/Casos_Uso/Autos/getAlquile
 export class ApiAutosAlquilerComponent implements OnInit {
 
   public Alquileres: Array<any> = [];
+  public Buscar_ID : string = " ";
 
   constructor( private _getAlquilerCasosUso : GetInventarioCasosUso) { }
   response$ ;
   datos;
 
   ngOnInit(): void {
-    //this.response$ = this._getAutosCasosUso.getAutosByID('63b4cd06380a2d579b064b96');
-    //this.response$.subscribe (
-      //(data) => {
-        //this.datos = data;
-      //}
-    //);
 
     this.response$ = this._getAlquilerCasosUso.getInventarioAll();
     this.response$.subscribe( (Resp: any) => { this.Alquileres = Resp } )
 
-    //this.response$ = this._getAutosCasosUso.getAutosByID('63b4cd06380a2d123rb064b96');
-    //this.response$.subscribe( (Resp: any) => { this.Alquileres = Resp, console.log(Resp) } )
+    this.response$ = this._getAlquilerCasosUso.getInventarioByID(this.Buscar_ID);
+    this.response$.subscribe( (data: any) => { this.datos = data } )
+  }
+
+  Buscar() {
+    //Recargar página con el id a buscar
+    this.ngOnInit();
   }
 
 }

@@ -8,6 +8,7 @@ import { GetClientesCasosUso } from 'src/app/domain/Casos_Uso/Autos/getCliente';
 export class ApiAutosClientesComponent implements OnInit {
 
   public Clientes: Array<any> = [];
+  public Buscar_ID : string = " ";
 
   constructor( private _getClientesCasosUso : GetClientesCasosUso) { }
   response$ ;
@@ -17,6 +18,13 @@ export class ApiAutosClientesComponent implements OnInit {
     this.response$ = this._getClientesCasosUso.getClientesAll();
     this.response$.subscribe( (Resp: any) => { this.Clientes = Resp } )
 
+    this.response$ = this._getClientesCasosUso.getClientesByID(this.Buscar_ID);
+    this.response$.subscribe( (data: any) => { this.datos = data })
+  }
+
+  Buscar() {
+    //Recargar página con el id a buscar
+    this.ngOnInit();
   }
 
 }

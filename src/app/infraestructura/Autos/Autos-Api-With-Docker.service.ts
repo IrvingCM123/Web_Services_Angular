@@ -94,13 +94,12 @@ export class DistribuidoresApiServicesDocker extends DistribuidoresGateway {
 })
 export class InventarioApiServicesDocker extends InventarioGateway {
 
-  private _url = 'http://localhost:3000/control-al';
+  private _url = 'http://localhost:3000/control-al/';
 
   constructor(private http: HttpClient) { super(); }
 
   getInventarioByID(id: String): Observable<Inventario> {
-    let header = new HttpHeaders().set('Type-content', 'aplication/json');
-    return this.http.get<Inventario>((this._url + id), { headers: header });
+    return this.http.get<Inventario>((this._url + id));
   }
 
   getInventarioAll(): Observable<Inventario[]> {

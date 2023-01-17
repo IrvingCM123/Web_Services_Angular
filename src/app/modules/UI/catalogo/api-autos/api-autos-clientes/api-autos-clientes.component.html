@@ -2,19 +2,21 @@
 
 <div class="container">
   <div class="row align-items-start">
-    <div class="col" *ngFor="let alquiler of Clientes">
+    <div class="col" *ngFor="let cliente of Clientes">
 
     <div class="card" style="width: 18rem;" >
-      <div>  </div> 
+      <div>  </div>
       <div class="card-body">
         <h5 class="card-title" *ngIf="!datos?.title">Card title</h5>
+        <p class="card-text"> <img src="{{cliente.img }}" alt="" style="width: 15rem; height: 10rem;">  </p>
+
       </div>
       <ul class="list-group list-group-flush" *ngIf="!datos?.title">
-        <li class="list-group-item"> <p  *ngIf="!datos?.title"> ID_Cliente {{alquiler.id_del_cliente}} </p></li>
-        <li class="list-group-item"> <p  *ngIf="!datos?.title"> Nombre Cliente {{alquiler.nombre_del_cliente }} </p> </li>
-        <li class="list-group-item"> <p  *ngIf="!datos?.title"> Direccion Cliente {{alquiler.direccion_del_cliente }} </p> </li>
-        <li class="list-group-item"> <p  *ngIf="!datos?.title"> Telefono Cliente {{alquiler.telefono_del_cliente}} </p></li>
-        <li class="list-group-item"> <p  *ngIf="!datos?.title"> Correo Cliente {{alquiler.correo_del_cliente }} </p> </li>
+        <li class="list-group-item"> <p  *ngIf="!datos?.title"> ID_Cliente {{cliente.id_del_cliente}} </p></li>
+        <li class="list-group-item"> <p  *ngIf="!datos?.title"> Nombre Cliente {{cliente.nombre_del_cliente }} </p> </li>
+        <li class="list-group-item"> <p  *ngIf="!datos?.title"> Direccion Cliente {{cliente.direccion_del_cliente }} </p> </li>
+        <li class="list-group-item"> <p  *ngIf="!datos?.title"> Telefono Cliente {{cliente.telefono_del_cliente}} </p></li>
+        <li class="list-group-item"> <p  *ngIf="!datos?.title"> Correo Cliente {{cliente.correo_del_cliente }} </p> </li>
       </ul>
     </div>
     </div>

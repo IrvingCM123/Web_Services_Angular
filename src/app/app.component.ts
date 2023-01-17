@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit{
   response$ ;
   datos;
+  responseID$ ;
   title = 'Web-Services';
   constructor (private _autosApiService : AutosApiServicesDocker, private _inventarioApiService : InventarioApiServicesDocker) {}
   ngOnInit(): void {

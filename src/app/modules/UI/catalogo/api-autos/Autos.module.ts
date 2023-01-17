@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { ApiAutosInventarioComponent } from './api-autos-inventario/api-autos-inventario.component';
 import { ApiAutosDistribuidoresComponent } from './api-autos-distribuidores/api-autos-distribuidores.component';
 import { ApiAutosClientesComponent } from './api-autos-clientes/api-autos-clientes.component';
@@ -19,7 +20,8 @@ import { ApiAutosNavegacionComponent } from './api-autos-navegacion/api-autos-na
     imports: [
         CommonModule,
         AutosRoutingModule,
-        CatalogoModule
+        CatalogoModule,
+        FormsModule
     ]
 })
 
